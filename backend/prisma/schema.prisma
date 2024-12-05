@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = "mysql://root:12345678@localhost:3306/real_estate_db"
+}
+
+model Listing {
+  id          Int    @id @default(autoincrement())
+  title       String
+  price       Float
+  address     String
+  description String
+  rooms       Int
+  bedrooms    Int
+  size        Int
+  images      Json
+  mainImage   String?
+  createdAt   DateTime @default(now())
+}
